@@ -1,0 +1,43 @@
+[{
+    "text": "Strawberries",
+    "value": "strawberries",
+    "disabled": true
+  },
+  {
+    "text": "Mango",
+    "value": "mango"
+  },
+  {
+    "text": "Bananas",
+    "value": "bananas"
+  },
+  {
+    "text": "Watermelon",
+    "value": "watermelon"
+  },
+  {
+    "text": "Apples",
+    "value": "apples"
+  },
+  {
+    "text": "Grapes",
+    "value": "grapes"
+  },
+  {
+    "text": "Oranges",
+    "value": "oranges"
+  },
+  {
+    "text": "Pineapple",
+    "value": "pineapple",
+    "disabled": true
+  },
+  {
+    "text": "Peaches",
+    "value": "peaches"
+  },
+  {
+    "text": "Cherries",
+    "value": "cherries"
+  }
+]
