@@ -6,10 +6,11 @@
     <meta name="robots" content="all">
     <title>jQuery Selectpick</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/select.css">
-    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/select.min.css">
+    <link rel="stylesheet" href="css/prism.min.css">
 </head>
 <body>
 
@@ -43,11 +44,11 @@
 
     <div class="button-group">
         <div class="up">
-            <a class="bt" target="_blank" href="https://github.com/fyuanfen/fyuanfen.github.io/tree/master/selectpick">View
+            <a class="bt" target="_blank" href="https://github.com/fyuanfen/Selectpick">View
                 on Github</a>
-            <a class="bt" target="_blank" href="https://github.com/lcdsantos/jQuery-Selectric/zipball/master">Download
+            <a class="bt" target="_blank" href="https://github.com/fyuanfen/Selectpick/zipball/master">Download
                 (ZIP)</a>
-            <a class="bt" target="_blank" href="https://github.com/lcdsantos/jQuery-Selectric/tarball/master">Download
+            <a class="bt" target="_blank" href="https://github.com/fyuanfen/Selectpick/tarball/master">Download
                 (TAR)</a>
         </div>
         <div class="down">
@@ -367,39 +368,51 @@ $('#bt_add_val').click(function () {
         </div>
 
         <div class="code">
-        <pre><code class="language-javascript">  var $ajaxitem = $('#ajaxitem').Select()[0];
-    $.ajax({ url: "./file.txt", dataType:'json', success: function(result){
-
-        $("#ajaxitem").setData(result);
-    }});
-
+        <pre><code class="language-javascript">//Populate via ajax request
+var $ajaxitem = $('#ajaxitem').Select()[0];
+$.ajax({
+    url: "file.json",
+    dataType: 'json',
+    success: function (result) {
+        $ajaxitem.setData(result);
+    },
+    error: function (xhr) {
+        alert("Error Message： " + xhr.status + " " + xhr.statusText);
+    }
 });</code></pre>
             <br>
-            <pre data-src="ajax.html"></pre>
+            <p>file.json文件如下：</p>
+            <pre data-src="file.json" class="language-json>"><code></code></pre>
         </div>
     </div>
-    <select name="select" id="select">
-        <option value="1">男</option>
-        <option value="2">女</option>
-        <option value="10" disabled="true">人妖</option>
-    </select>
-    <select id="select2" disabled="true"></select>
-    <input type="text" id="select3" value="0">
+
     <div class="bottom-spacer"></div>
 
-    <div class="copy">
-        <p style="float: left;">Project maintained by <b>Leonardo Santos</b> <br>
-            <a href="https://github.com/lcdsantos">Github</a> &bull; <a
-                    href="https://twitter.com/lcdsantos">Twitter</a> &bull; <a
-                    href="mailto:leocs.1991@gmail.com">Email</a></p>
 
-        <p style="float: right;">Hosted on GitHub Pages</p>
-    </div>
+
 </div>
+<footer id="footer" class="footer">
+    <div class="footer-inner">
+        <div class="copyright">
+            Project maintained by
+            <span class="with-love">
+                    <i class="fa fa-heart"></i>
+                </span>
+            <span class="author" itemprop="copyrightHolder">Yuriel</span>
+        </div>
 
-<script src="js/lib/jquery-1.11.2.js"></script>
-<script src="js/lib/prism.js"></script>
-<script src="js/select.js"></script>
+        <div class="has-right">
+            <a class="theme-link" href="https://github.com/fyuanfen/">Github</a>
+        </div>
+        <div class="right">
+            <a class="theme-link" href="https://www.zyy1217.com">Blog</a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/lib/jquery-1.11.2.min.js"></script>
+<script src="js/lib/prism.min.js"></script>
+<script src="js/select.min.js"></script>
 
 <script>
     $('#basic').Select();
@@ -440,19 +453,18 @@ $('#bt_add_val').click(function () {
         $dynamic.addData(value);
     });
 
-
-
-
-
+    //Populate via ajax request
     var $ajaxitem = $('#ajaxitem').Select()[0];
     $.ajax({
-        url: "./file.json",
-        dataType:'json',
-        success: function(result){
-
-            $("#ajaxitem").setData(result);
-    }});
-
+        url: "file.json",
+        dataType: 'json',
+        success: function (result) {
+            $ajaxitem.setData(result);
+        },
+        error: function (xhr) {
+            alert("Error Message： " + xhr.status + " " + xhr.statusText);
+        }
+    });
 
 
     $('#select').Select({

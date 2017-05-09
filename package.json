@@ -20,5 +20,8 @@
     "gulp-watch": "^4.3.11",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-optipng": "^5.2.1"
+  },
+  "dependencies": {
+    "gulp-rename": "^1.2.2"
   }
 }
