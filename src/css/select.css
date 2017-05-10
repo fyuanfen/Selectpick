@@ -9,7 +9,10 @@ h1 {
 select{
     width:100%;
 }
+
+
 .ui-select-trigger {
+box-sizing: border-box;
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
@@ -17,12 +20,13 @@ select{
     position: relative;
     border-radius: 3px;
     width:100%;
-    padding:0.3rem 0.8rem;
+    padding:0rem 0.8rem;
 }
 .ui-select-trigger span {
-    font-size: 12px;
+    font-size: 0.8rem;
     color: #cccccc;
     display: block;
+    height:auto;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

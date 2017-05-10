@@ -112,10 +112,15 @@ $("select#demo") //选取所有 id="demo" 的 <select>
         height: 30
     });
     ```
-    
+###  maxHeight: 
+### maxWidth
+             
 ## method
 ### setData:`function(data)`
 	更改数据源data为数组[value:'1',text:'文本',disabled:false]
+
+### addData(value);
+
 ### selected:`function(val,txt)`
 	选中后的回调
 ## 事件

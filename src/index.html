@@ -33,7 +33,7 @@
         </li>
         <li>
             <div class="ico ico-options"><b></b></div>
-            <p>Options box always stay visible</p>
+            <p>Can bind to any types of HTML element</p>
         </li>
         <li>
             <div class="ico ico-jquery"><b></b></div>
@@ -53,42 +53,27 @@
         </div>
         <div class="down">
             <a class="link"
-               href="https://raw.githubusercontent.com/lcdsantos/jQuery-Selectric/master/public/selectpick.js">selectpick.js</a>
+               href="https://raw.githubusercontent.com/fyuanfen/Selectpick/master/src/js/select.js">selectpick.js</a>
             <a class="link"
-               href="https://raw.githubusercontent.com/lcdsantos/jQuery-Selectric/master/public/selectpick.min.js">selectpick.min.js</a>
+               href="https://raw.githubusercontent.com/fyuanfen/Selectpick/master/dist/js/select.min.js">selectpick.min.js</a>
             <a class="link"
-               href="https://raw.githubusercontent.com/lcdsantos/jQuery-Selectric/master/public/selectric.css">selectric.css</a>
+               href="https://raw.githubusercontent.com/fyuanfen/Selectpick/master/src/css/select.css">selecpick.css</a>
         </div>
     </div>
-
     <ul class="social-buttons">
         <li class="gh-btn">
-            <iframe width="85" height="40" title="Star on GitHub"
-                    src="http://ghbtns.com/github-btn.html?user=lcdsantos&repo=jQuery-Selectric&type=watch&count=true"></iframe>
+            <iframe  title="Star on GitHub"
+                    src="http://ghbtns.com/github-btn.html?user=fyuanfen&repo=Selectpick&type=star&count=true&size=large"></iframe>
+        </li>
+        <li class="gh-btn">
+            <iframe src="https://ghbtns.com/github-btn.html?user=fyuanfen&repo=Selectpick&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
+
         </li>
 
-        <li class="tweet-btn">
-            <a href="https://twitter.com/share" class="twitter-share-button"
-               data-text="Fast, simple and light jQuery plugin to customize HTML selects" data-via="lcdsantos"
-               data-related="lcdsantos">Tweet</a>
-        </li>
-
-        <li class="fb-btn">
-            <div class="fb-like" data-href="http://lcdsantos.github.io/jQuery-Selectric/" data-colorscheme="light"
-                 data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-        </li>
-
-        <li class="flattr-btn">
-            <a href="https://flattr.com/submit/auto?user_id=lcdsantos&url=http%3A%2F%2Flcdsantos.github.io%2FjQuery-Selectric%2F"
-               target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this"
-                                    title="Flattr this" border="0"></a>
-        </li>
-
-        <li class="gplus-btn">
-            <div class="g-plusone" data-annotation="inline" data-width="80" data-size="medium"></div>
+        <li class="gh-btn">
+            <iframe src="https://ghbtns.com/github-btn.html?user=fyuanfen&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
         </li>
     </ul>
-
     <div class="section">
         <h2>How to use</h2>
 
@@ -114,8 +99,7 @@
 
                 <li>
                     <p>4. Initialize <strong>jQuery Selectpick:</strong></p>
-                    <pre><code class="language-javascript">  $('#select').Select({
-  });</code></pre>
+                    <pre><code class="language-javascript">  $('#select').Select();</code></pre>
                 </li>
             </ul>
         </div>
@@ -141,7 +125,7 @@
         &lt;option value=&quot;2&quot;&gt;女&lt;/option&gt;
         &lt;option value=&quot;10&quot; disabled=&quot;true&quot;&gt;人妖&lt;/option&gt;
 &lt;/select&gt;</code></pre>
-                or even any other elements.
+                or even any other elements.D <span class="note">(For more detail, see our <a href="#otherDiv">demo page</a>) </span>
                 <pre><code class="language-markup">&lt;input type=&quot;text&quot; id=&quot;select3&quot; value=&quot;0&quot;&gt;</code></pre>
 
                 <p>We encapsulate any elements into a custom select component.</p>
@@ -163,7 +147,7 @@ $(&quot;select#demo&quot;).Select({}); //选取所有 id=&quot;demo&quot; 的 &l
             <li>
                 <h2>model <span class="note">Array</span></h2>
                 <p>
-                    select的数据源，默认格式为 <code class="language-markup">[value:'1',text:'文本',disabled:false]</code>，调用示例如下：
+                    selectpick的数据源，默认格式为 <code class="language-markup">[value:'1',text:'文本',disabled:false]</code>，调用示例如下：<span class="note">( <a href="#otherDiv">demo page</a>) </span>
                 </p>
                 <pre><code class="language-javascript">$(&#x27;#select2&#x27;).Select({
     width: 200,
@@ -206,20 +190,41 @@ $(&quot;select#demo&quot;).Select({}); //选取所有 id=&quot;demo&quot; 的 &l
     <div class="section">
         <h2>Public methods</h2>
         <ul>
+
             <li>
                 <h2>setData <span class="note">:function(data)</span></h2>
-                <p>更改数据源data为数组[value:'1',text:'文本',disabled:false]</p>
+                <p>更改下拉框的数据源data，可以直接设置，也可以通过ajax方法异步获取。详见<span class="note"><a href="#ajaxDiv">示例</a></span></p>
+            </li>
+
+            <li>
+                <h2>addData <span class="note">:function (val, txt, disabled)</span></h2>
+                <p> selectpick原型方法。
+
+                    添加下拉框选项。val是选项的值，txt是选项的显示文本，disabled表示选项是否被禁用。详见<span class="note"><a href="#changeDiv">示例</a></span></p>
+            </li>
+
+            <li>
+                <h2>setValue <span class="note">:function (val, txt)</span></h2>
+                <p> selectpick原型方法。
+
+                    设置value属性的值为val的选项为select当前选中值。txt参数若不为空，则在选中该项的同时，改变该选中项的显示文本。详见<span class="note"><a href="#setValueDiv">示例</a></span></p>
+
+
             </li>
             <li>
                 <h2>set <span class="note">:function(e,val)</span></h2>
-                <pre><code
-                        class="language-javascript">$(target).trigger(&#x27;set&#x27;,&#x27;1&#x27;)//设置选中项</code></pre>
+                <p> 作用同setValue，内部机制是调用setValue方法。详见<span class="note"><a href="#setValueDiv">示例</a></span></p>
+
+                </p>
+
+                <pre><code class="language-javascript">$(target).trigger('set','1')</code></pre>
             </li>
+
         </ul>
     </div>
 
 
-    <div class="section demo">
+    <div class="section demo" id="basicDiv">
         <h3>Basic usage</h3>
 
         <div class="view">
@@ -242,12 +247,52 @@ $(&quot;select#demo&quot;).Select({}); //选取所有 id=&quot;demo&quot; 的 &l
         </div>
 
         <div class="code">
-            <pre><code class="language-javascript">$('#basic').Select();</code></pre>
+            <pre><code class="language-javascript">$('#basic').Select({
+    width:350,
+    height:30,
+    maxHeight: 100
+});</code></pre>
         </div>
     </div>
 
+    <div class="section demo" id="otherDiv">
+        <h3>Other types of Elements</h3>
 
-    <div class="section demo">
+        <div class="view">
+            <input id="other" value="0">
+        </div>
+
+        <div class="code">
+            <p>You can also change other types of original element into a Selectpick plugin,
+                just like the <code class="language-markup">&lt;input&gt;</code> element shown on the left.</p>
+            <pre><code class="language-markup">&lt;input id=&quot;other&quot; value=&quot;0&quot;&gt;</code></pre>
+            <p>We encapsulate the implementation details，what you need to do is as follows:</p>
+            <pre><code class="language-javascript">('#other').Select({
+    width: 390,
+    height: 30,
+    model: [
+      {
+        "text": "Strawberries",
+        "value": "0",
+        "disabled": true
+      },
+      {
+        "text": "Mango",
+        "value": "1"
+      },
+      {
+        "text": "Bananas",
+        "value": "2"
+      },
+      {
+        "text": "Watermelon",
+        "value": "3"
+      }]
+});</code></pre>
+        </div>
+    </div>
+
+    <div class="section demo" id="getValueDiv">
         <h3>Get selected option value</h3>
 
         <div class="view">
@@ -283,7 +328,7 @@ $('#get_value').change( function() {
         </div>
     </div>
 
-    <div class="section demo">
+    <div class="section demo" id="setValueDiv">
         <h3>Set value</h3>
 
         <div class="view">
@@ -307,24 +352,36 @@ $('#get_value').change( function() {
         <div class="code">
         <pre><code class="language-javascript">// Initialize Selectpick
 $('#set_value').Select();
-
 //Bind the click event to button,and trigger the 'set' event of origin element
 $('#set_first_option').on('click', function() {
     $('#set_value').trigger('set','0');
 });
-
 $('#set_second_option').on('click', function() {
     $('#set_value').trigger('set','1');
 });
-
 $('#set_third_option').on('click', function() {
     $('#set_value').trigger('set','2');
+});
+
+
+//Or you can also call the Selectpick Prototype method directly.
+var $set_value = $('#set_value').Select()[0];
+
+// Then call the setValue() method.
+$('#set_first_option').on('click', function () {
+    $set_value.setValue(0);
+});
+$('#set_second_option').on('click', function () {
+    $set_value.setValue(1);
+});
+$('#set_third_option').on('click', function () {
+    $set_value.setValue(2);
 });
 </code></pre>
         </div>
     </div>
 
-    <div class="section demo">
+    <div class="section demo" id="changeDiv">
         <h3>Change options on the fly</h3>
 
         <div class="view">
@@ -360,7 +417,7 @@ $('#bt_add_val').click(function () {
         </div>
     </div>
 
-    <div class="section demo">
+    <div class="section demo" id="ajaxDiv">
         <h3>Populate via ajax request</h3>
 
         <div class="view">
@@ -382,10 +439,10 @@ $.ajax({
 });</code></pre>
             <br>
             <p>file.json文件如下：</p>
-            <pre data-src="file.json" class="language-json>"><code></code></pre>
+            <pre data-src="file.json" ><code class="language-json>"></code></pre>
+
         </div>
     </div>
-
     <div class="bottom-spacer"></div>
 
 
@@ -413,11 +470,47 @@ $.ajax({
 <script src="js/lib/jquery-1.11.2.min.js"></script>
 <script src="js/lib/prism.min.js"></script>
 <script src="js/select.min.js"></script>
+<script src="js/iconChange.min.js"></script>
 
 <script>
-    $('#basic').Select();
+    /*
+    * Basic usage
+    * */
+    $('#basic').Select({
+        width:350,
+        height:30,
+        maxHeight: 100
+    });
+
+    /*
+    * other types of element*/
+    $('#other').Select({
+        width: 390,
+        height: 30,
+        model: [
+            {
+                "text": "Strawberries",
+                "value": "0",
+                "disabled": true
+            },
+            {
+                "text": "Mango",
+                "value": "1"
+            },
+            {
+                "text": "Bananas",
+                "value": "2"
+            },
+            {
+                "text": "Watermelon",
+                "value": "3"
+            }]
+    });
 
 
+    /*
+    * Get selected option value
+    * */
     // Cache the target element
     var $selectValue = $('#select_value').find('strong');
     // Get initial value
@@ -425,11 +518,18 @@ $.ajax({
     // Initialize Selectpick and bind to 'change' event
     $('#get_value').change(function () {
         $selectValue.text($(this).val());
-    }).Select();
+    }).Select({
+        width:350,
+        height:30
+    });
 
-
+    /*
+    * Set value*/
     // Initialize Selectpick
-    $('#set_value').Select();
+    $('#set_value').Select({
+        width:350,
+        height:30
+    });
     //Bind the click event to button,and trigger the 'set' event of origin element
     $('#set_first_option').on('click', function () {
         $('#set_value').trigger('set', '0');
@@ -441,9 +541,31 @@ $.ajax({
         $('#set_value').trigger('set', '2');
     });
 
+//
+//    //Or you can also call the Selectpick Prototype method directly.
+//
+//    var $set_value = $('#set_value').Select()[0];
+//
+//    // Then call the setValue() method.
+//    $('#set_first_option').on('click', function () {
+//        $set_value.setValue(0);
+//    });
+//    $('#set_second_option').on('click', function () {
+//        $set_value.setValue(1);
+//    });
+//    $('#set_third_option').on('click', function () {
+//        $set_value.setValue(2);
+//    });
 
-    //Change options on the fly
-    var $dynamic = $('#dynamic').Select()[0];
+
+
+    /*
+    * Change options on the fly
+    * */
+    var $dynamic = $('#dynamic').Select({
+        width:350,
+        height:30
+    })[0];
 
     $('#bt_add_val').click(function () {
         // Store the value in a variable
@@ -451,10 +573,16 @@ $.ajax({
 
         // Append to original select
         $dynamic.addData(value);
+        $('#add_val').val('');
     });
 
-    //Populate via ajax request
-    var $ajaxitem = $('#ajaxitem').Select()[0];
+    /*
+    *Populate via ajax request
+    */
+    var $ajaxitem = $('#ajaxitem').Select(({
+        width:350,
+        height:30
+    }))[0];
     $.ajax({
         url: "file.json",
         dataType: 'json',
@@ -466,104 +594,6 @@ $.ajax({
         }
     });
 
-
-    $('#select').Select({
-        width: 100,
-        height: 30
-    });
-    $('#select2').Select({
-        width: 200,
-        model: [{
-            text: "请选择",
-            value: "1"
-        }]
-    });
-    var model = [{
-        text: "请选择",
-        value: "0",
-        disabled: true
-    }, {
-        text: "浙江",
-        value: "1"
-    }, {
-        text: "杭州",
-        value: "2"
-    }, {
-        text: "宁波",
-        value: "3"
-    }, {
-        text: "湖北",
-        value: "4"
-    }, {
-        text: "上海",
-        value: "5"
-    }, {
-        text: "万达",
-        value: "6"
-    }, {
-        text: "物美",
-        value: "7",
-        disabled: true
-    }, {
-        text: "中国",
-        value: "8"
-    }, {
-        text: "外国",
-        value: "9"
-    }];
-    $('#select3').change(function () {
-        console.log('选中个：' + $(this).val())
-    }).Select({
-        width: 200,
-        height: 30,
-        maxHeight: 300,
-        maxWidth: 'auto',
-        model: model
-    });
-
-</script>
-<script>
-    //    $(function () {
-    //        $('.custom-options').selectric({
-    //            optionsItemBuilder: function (itemData) {
-    //                return itemData.value.length ? '<span class="ico ico-' + itemData.value + '"></span>' + itemData.text : itemData.text;
-    //            }
-    //        });
-    //
-    //        $('.custom-label').selectric({
-    //            labelBuilder: function (currItem) {
-    //                return '<strong><em>' + currItem.text + '</em></strong>';
-    //            }
-    //        });
-    //
-    //        $('select').selectric();
-    //    });
-
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-42240250-1', 'auto');
-    ga('require', 'displayfeatures');
-    ga('send', 'pageview');
-
-    function getScript(a, b, c, e) {
-        var d = a.getElementsByTagName(b)[0];
-        a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = e, d.parentNode.insertBefore(a, d))
-    }
-    ;
-
-    getScript(document, 'script', 'facebook-jssdk', '//connect.facebook.net/en_US/all.js#xfbml=1&appId=146929405493694');
-    getScript(document, 'script', 'twitter-wjs', '//platform.twitter.com/widgets.js');
-    getScript(document, 'script', 'googleplus-wjs', '//apis.google.com/js/plusone.js');
 </script>
 </body>
 </html>

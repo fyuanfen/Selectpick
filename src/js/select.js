@@ -77,6 +77,10 @@
             this.format();
         },
         addData: function (val, txt, disabled) {
+            if(!val) {
+                alert("please enter a value");
+                return;
+            }
             for (var index in this.model) {
                 if (this.model[index].value == val){
                     alert('值重复'+val);
@@ -89,7 +93,9 @@
                 disabled: disabled||false
             };
             this.model.push(o);
+            alert('add successfully');
             this.render();
+
 
         },
         render: function () {
@@ -214,6 +220,7 @@
             this.trigger.addClass('active');
             var _this = this;
             var pos = _this.trigger[0].getBoundingClientRect();
+            //设置下拉框的位置
             this.select.css({
                 left: pos.left,
                 top: _this.trigger.offset().top + pos.bottom - pos.top
